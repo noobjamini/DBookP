@@ -3,6 +3,8 @@ from catalog import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('introduce/',views.introduce, name='introduce'),
-    path('apply/', views.apply, name='apply'),
+    path('apply/', views.apply_form, name='apply_form'),
+    path('introduce/', views.introduce, name='introduce'),
+    path('survey-complete/', views.survey_complete, name='survey_complete'),
+    path('quswoalsrlawnstj/', views.application_list, name='application_list'),
 ]
