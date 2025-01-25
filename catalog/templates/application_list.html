@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>신청자 명단</title>
+</head>
+<body>
+    <h1>지원자 목록</h1>
+    <ul>
+        {% for app in applications %}
+            <li>
+                <strong>{{ app.name }}</strong> ({{ app.student_id }}) - {{ app.favorite_book }}
+                <p>지원 동기: {{ app.motivation }}</p>
+                <p>각오 및 포부: {{ app.aspirations }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
