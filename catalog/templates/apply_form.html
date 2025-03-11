@@ -1,16 +1,51 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>신청 폼</title>
+    <link rel="stylesheet" href="{% static 'css/apply_form.css' %}">
 </head>
 <body>
-    <h1>도서부 신입생 신청</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">제출</button>
-    </form>
+
+    <div class="container">
+        <h1>📖 도서부 신입생 신청서</h1>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <!-- 에러 메시지 전체 표시 -->
+            {% if form.errors %}
+                <div class="error-message">
+                    <p>⚠️ 입력한 정보를 다시 확인해주세요:</p>
+                    <ul>
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                                <li>{{ field.label }}: {{ error }}</li>
+                            {% endfor %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+            <!-- 폼 필드 개별적으로 표시 -->
+            {% for field in form %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.help_text %}
+                        <small class="form-text text-muted">{{ field.help_text }}</small>
+                    {% endif %}
+                    {% if field.errors %}
+                        <div class="error-text">{{ field.errors.0 }}</div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+            <button type="submit" class="btn btn-primary w-100 mt-3">제출</button>
+        </form>
+    </div>
+
 </body>
 </html>

@@ -1,0 +1,198 @@
+/* 기본 스타일 */
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.banner {
+  background-color: #6c757d;
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 15px 10px;
+  font-weight: bold;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  animation: fadeInUp 1.5s ease-in-out;
+}
+
+.section {
+  margin: 60px 0;
+  padding: 40px 15px;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.section h2 {
+  margin-bottom: 25px;
+  animation: bounceIn 1s ease-in-out;
+}
+
+.section-img {
+  max-width: 100%;
+  border-radius: 10px;
+  animation: zoomIn 1.2s ease-in-out;
+}
+
+/* 버튼 스타일 */
+.btn {
+  font-size: 1rem;
+  padding: 12px 25px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  animation: pulse 1.5s infinite;
+}
+
+.btn:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+/* 혜택 박스 스타일 */
+.benefit-box {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  margin-bottom: 30px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: slideInLeft 1.5s ease-in-out;
+}
+
+.benefit-box:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 애니메이션 효과 */
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+      opacity: 0;
+      transform: translateY(-30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  from, 20%, 40%, 60%, 80%, to {
+      transform: scale(0.9);
+  }
+  50% {
+      transform: scale(1.1);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+      opacity: 0;
+      transform: scale(0.5);
+  }
+  to {
+      opacity: 1;
+      transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.1);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+      opacity: 0;
+      transform: translateX(-100px);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .section {
+      margin: 80px 0;
+      padding: 50px 20px;
+      animation: fadeInUp 1.2s ease-in-out;
+  }
+  .banner {
+      font-size: 1.2rem;
+      padding: 10px;
+      animation: fadeInDown 1.2s ease-in-out;
+  }
+  .display-4 {
+      font-size: 2rem;
+  }
+  .lead {
+      font-size: 1rem;
+  }
+  .benefit-box {
+      padding: 25px;
+      margin-bottom: 60px;
+      animation: slideInLeft 1.5s ease-in-out;
+  }
+  .btn {
+      font-size: 0.9rem;
+      padding: 10px 20px;
+      animation: pulse 1.5s infinite;
+  }
+}
+
+@media (max-width: 576px) {
+  .section {
+      margin: 100px 0;
+      padding: 50px 25px;
+  }
+  .banner {
+      font-size: 1rem;
+      padding: 8px;
+  }
+  h1, h2 {
+      font-size: 1.4rem;
+  }
+  .benefit-box {
+      font-size: 0.9rem;
+      padding: 25px;
+      margin-bottom: 70px;
+  }
+  .btn {
+      font-size: 0.85rem;
+      padding: 8px 16px;
+  }
+  .blockquote {
+      font-size: 0.9rem;
+  }
+  .accordion-button {
+      font-size: 0.9rem;
+  }
+}
